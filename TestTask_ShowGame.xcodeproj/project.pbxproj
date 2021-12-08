@@ -16,6 +16,7 @@
 		F7E09B512760D16A009F343F /* Task.strings in Resources */ = {isa = PBXBuildFile; fileRef = F7E09B502760D16A009F343F /* Task.strings */; };
 		F7E09B532760D1D2009F343F /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E09B522760D1D2009F343F /* MainPresenter.swift */; };
 		F7E09B552760D1E4009F343F /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E09B542760D1E4009F343F /* NetworkService.swift */; };
+		F7E09B572760DBD6009F343F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E09B562760DBD6009F343F /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		F7E09B502760D16A009F343F /* Task.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Task.strings; sourceTree = "<group>"; };
 		F7E09B522760D1D2009F343F /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		F7E09B542760D1E4009F343F /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		F7E09B562760DBD6009F343F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				F7E09B402760D134009F343F /* MainViewController.swift */,
 				F7E09B522760D1D2009F343F /* MainPresenter.swift */,
 				F7E09B542760D1E4009F343F /* NetworkService.swift */,
+				F7E09B562760DBD6009F343F /* Model.swift */,
 				F7E09B422760D134009F343F /* Main.storyboard */,
 				F7E09B452760D137009F343F /* Assets.xcassets */,
 				F7E09B472760D137009F343F /* LaunchScreen.storyboard */,
@@ -151,6 +154,7 @@
 				F7E09B552760D1E4009F343F /* NetworkService.swift in Sources */,
 				F7E09B412760D134009F343F /* MainViewController.swift in Sources */,
 				F7E09B3D2760D134009F343F /* AppDelegate.swift in Sources */,
+				F7E09B572760DBD6009F343F /* Model.swift in Sources */,
 				F7E09B3F2760D134009F343F /* SceneDelegate.swift in Sources */,
 				F7E09B532760D1D2009F343F /* MainPresenter.swift in Sources */,
 			);
