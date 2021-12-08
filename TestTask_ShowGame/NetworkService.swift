@@ -13,7 +13,8 @@ protocol NetworkServiceProtocol {
 
 final class NetworkService {
     
-    private let urlString = "https://api.instat.tv/test/data"
+    private let urlString1 = "https://api.instat.tv/test/data"
+    private let urlString2 = "https://api.instat.tv/test/video-urls"
     
     private func createDataTask(from request: URLRequest,
                                 completion: @escaping (Data?, Error?) -> Void) -> URLSessionDataTask {
@@ -33,19 +34,21 @@ final class NetworkService {
 
 extension NetworkService: NetworkServiceProtocol {
     func makeRequest(completion: @escaping (Data?, Error?) -> Void) {
-//        let proc =
-//        let params = "{phone: \(phone), id: \(id)}"
-//        let postData = parameters.data(using: .utf8)
-        let parameters: [String: Any] = [
+
+        let parameters1: [String: Any] = [
             "proc": "get_match_info",
-            "params":
-                [
+            "params": [
                 "_p_sport": 1,
                 "_p_match_id": 1724836
                 ]
         ]
+        // отдает 8 ссылок
+        let parameters2: [String: Any] = [
+            "match_id": 1724836,
+            "sport_id": 1
+        ]
         
-        guard let url = URL(string: urlString) else {
+        guard let url = URL(string: urlString2) else {
             print(#function, "No url")
             return
         }
@@ -54,7 +57,7 @@ extension NetworkService: NetworkServiceProtocol {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         do {
-                request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+                request.httpBody = try JSONSerialization.data(withJSONObject: parameters2, options: .prettyPrinted)
             } catch let error {
                 print(error.localizedDescription)
             }

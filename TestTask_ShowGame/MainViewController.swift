@@ -19,7 +19,7 @@ class MainViewController: UIViewController {
             guard let data = data else { return }
 
             do {
-                let objects = try JSONDecoder().decode(Game.self, from: data)
+                let objects = try JSONDecoder().decode([GameInfo].self, from: data)
                 print("Objects: \(objects)")
             } catch {
                 print("Parse error: \(error)")
