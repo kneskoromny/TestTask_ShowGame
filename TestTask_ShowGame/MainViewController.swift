@@ -33,7 +33,7 @@ class MainViewController: UIViewController {
     
     var networkService: NetworkServiceProtocol!
     
-    let itemsPerRow: CGFloat = 8
+    let itemsPerColumn: CGFloat = 1
     let sectionInserts = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
 
     override func viewDidLoad() {

@@ -67,10 +67,10 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
     // находим размер ячейки в зависимости от размера экрана
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let paddingWidth = sectionInserts.left * (itemsPerRow + 1)
-        let availableWidth = collectionView.frame.width - paddingWidth
-        let widthPerItem = availableWidth / itemsPerRow
-        return CGSize(width: widthPerItem * 2, height: widthPerItem)
+        let paddingHeight = sectionInserts.left * (itemsPerColumn + 1)
+        let availableHeight = collectionView.frame.height - paddingHeight
+        let heightPerItem = availableHeight / itemsPerColumn
+        return CGSize(width: heightPerItem * 2, height: heightPerItem)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
