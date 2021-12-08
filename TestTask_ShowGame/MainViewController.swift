@@ -13,9 +13,17 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         networkService = NetworkService()
-        networkService.makeRequest { response, error in
-            print("response: \(response.statusCode)")
+        networkService.makeRequest { data, error in
+            guard let data = data else { return }
+
+            do {
+                let objects = try JSONDecoder().decode(Game.self, from: data)
+                print("Objects: \(objects)")
+            } catch {
+                print("Parse error: \(error)")
+            }
         }
     }
 

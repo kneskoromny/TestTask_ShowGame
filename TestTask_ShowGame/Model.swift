@@ -9,10 +9,10 @@ import Foundation
 
 // MARK: - Game
 struct Game: Codable {
-    let tournament: Info
-    let date: String
-    let team1, team2: Info
-    let streamStatus: Int
+    let tournament: Info?
+    let date: String?
+    let team1, team2: Info?
+    let streamStatus: Int?
 
     enum CodingKeys: String, CodingKey {
         case tournament, date, team1, team2
@@ -22,8 +22,8 @@ struct Game: Codable {
 
 // MARK: - Info
 struct Info: Codable {
-    let id: Int
-    let nameEng, nameRus: String
+    let id: Int?
+    let nameEng, nameRus: String?
     let score: Int?
 
     enum CodingKeys: String, CodingKey {

@@ -8,7 +8,7 @@
 import Foundation
 
 protocol NetworkServiceProtocol {
-    func makeRequest(completion: @escaping (HTTPURLResponse, Error?) -> Void)
+    func makeRequest(completion: @escaping (Data?, Error?) -> Void)
 }
 
 final class NetworkService {
@@ -16,22 +16,23 @@ final class NetworkService {
     private let urlString = "https://api.instat.tv/test/data"
     
     private func createDataTask(from request: URLRequest,
-                                completion: @escaping (HTTPURLResponse, Error?) -> Void) -> URLSessionDataTask {
+                                completion: @escaping (Data?, Error?) -> Void) -> URLSessionDataTask {
         return URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
             guard let response = response as? HTTPURLResponse else {
                 print(#function, "Fetch error: \(error?.localizedDescription)")
                 return
             }
+            print(#function, "Response: \(response.statusCode)")
+            
             DispatchQueue.main.async {
-                completion(response, error)
-                print(data)
+                completion(data, error)
             }
         })
     }
 }
 
 extension NetworkService: NetworkServiceProtocol {
-    func makeRequest(completion: @escaping (HTTPURLResponse, Error?) -> Void) {
+    func makeRequest(completion: @escaping (Data?, Error?) -> Void) {
 //        let proc =
 //        let params = "{phone: \(phone), id: \(id)}"
 //        let postData = parameters.data(using: .utf8)
