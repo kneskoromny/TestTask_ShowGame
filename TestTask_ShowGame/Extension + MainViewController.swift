@@ -26,8 +26,8 @@ extension MainViewController {
         cv.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
         return cv
     }
-    func createVideoView() -> UIView {
-        let v = UIView()
+    func createVideoView() -> VideoView{
+        let v = VideoView()
         v.translatesAutoresizingMaskIntoConstraints = false
         v.backgroundColor = #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)
         return v
