@@ -65,8 +65,9 @@ extension MainViewController: UICollectionViewDataSource {
 // MARK: - Collection View delegate
 extension MainViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let _ = collectionView.cellForItem(at: indexPath)
-        print(indexPath)
+        presenter.showVideo(at: indexPath)
+        
+        
     }
 }
 

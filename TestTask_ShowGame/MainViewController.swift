@@ -10,7 +10,10 @@ import AVFoundation
 
 protocol MainViewProtocol: AnyObject {
     func updateLabels()
-    func updateCollectionView() 
+    func updateCollectionView()
+    
+    func getFrame() -> CGRect
+    func addLayer(_ layer: AVPlayerLayer)
 }
 
 class MainViewController: UIViewController {
@@ -150,6 +153,13 @@ extension MainViewController: MainViewProtocol {
     func updateCollectionView() {
         collectionView.reloadData()
         
+    }
+    
+    func getFrame() -> CGRect {
+        videoView.bounds
+    }
+    func addLayer(_ layer: AVPlayerLayer) {
+        videoView.layer.addSublayer(layer)
     }
 }
 
