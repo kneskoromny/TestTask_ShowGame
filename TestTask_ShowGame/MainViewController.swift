@@ -51,7 +51,8 @@ class MainViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        presenter.fetchGameInfo()
+        presenter.fetchGameStat()
+        presenter.fetchGameVideos()
     }
     
     @IBAction func button() {

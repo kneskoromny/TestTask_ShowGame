@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Game
-struct Game: Codable {
+struct GameStat: Codable {
     let tournament: Info?
     let date: String?
     let team1, team2: Info?
@@ -35,7 +35,7 @@ struct Info: Codable {
 }
 
 // MARK: - GameInfo
-struct GameInfo: Codable {
+struct GameVideo: Codable {
     let name: String?
     let matchID, period, serverID: Int?
     let quality, folder, videoType, abc: String?
