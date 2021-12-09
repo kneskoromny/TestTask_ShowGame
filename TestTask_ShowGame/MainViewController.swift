@@ -9,7 +9,8 @@ import UIKit
 import AVFoundation
 
 protocol MainViewProtocol: AnyObject {
-    func updateUI()
+    func updateLabels()
+    func updateCollectionView() 
 }
 
 class MainViewController: UIViewController {
@@ -131,7 +132,7 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController: MainViewProtocol {
-    func updateUI() {
+    func updateLabels() {
         guard let stat = presenter.stat else { return }
         
         tournamentNameLabel.text = stat.tournament?.nameRus
@@ -144,6 +145,10 @@ extension MainViewController: MainViewProtocol {
         if let secondTeamScore = stat.team2?.score {
             secondTeamScoreLabel.text = String(secondTeamScore)
         }
+    }
+    
+    func updateCollectionView() {
+        collectionView.reloadData()
         
     }
 }
