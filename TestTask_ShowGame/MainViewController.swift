@@ -6,20 +6,16 @@
 //
 
 import UIKit
-import AVFoundation
 
+// MARK: - Protocol requirements
 protocol MainViewProtocol: AnyObject {
     func updateLabels()
     func updateCollectionView()
     
     func showVideo(from url: URL?)
-//    func getFrame() -> CGRect
-//    func addLayer(_ layer: AVPlayerLayer)
 }
 
 class MainViewController: UIViewController {
-    
-    @IBOutlet weak var videoPlayerView: UIView!
     
     // MARK: - UI elements
     lazy var tournamentNameLabel = createLabel()
@@ -37,10 +33,11 @@ class MainViewController: UIViewController {
     lazy var secondHorizStackView = createStackView(axis: .horizontal)
     lazy var vertStackView = createStackView(axis: .vertical)
     
-    var presenter: MainPresenterProtocol!
     
     let itemsPerColumn: CGFloat = 1
     let sectionInserts = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+    
+    var presenter: MainPresenterProtocol!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,6 +74,7 @@ class MainViewController: UIViewController {
         vertStackView.distribution = .fillEqually
         vertStackView.backgroundColor = .lightGray
     }
+    // MARK: - Pin UI elements
     private func pinStackView() {
         view.addSubview(vertStackView)
         vertStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20)
@@ -109,10 +107,9 @@ class MainViewController: UIViewController {
             .isActive = true
         collectionView.bottomAnchor.constraint(equalTo: videoView.topAnchor, constant: -20)
             .isActive = true
-        
     }
 }
-
+// MARK: - Protocol requirements implementation
 extension MainViewController: MainViewProtocol {
     func updateLabels() {
         guard let stat = presenter.stat else { return }
@@ -128,21 +125,12 @@ extension MainViewController: MainViewProtocol {
             secondTeamScoreLabel.text = String(secondTeamScore)
         }
     }
-    
     func updateCollectionView() {
         collectionView.reloadData()
-        
     }
     
     func showVideo(from url: URL?) {
         videoView.url = url
     }
-    
-//    func getFrame() -> CGRect {
-//        videoView.bounds
-//    }
-//    func addLayer(_ layer: AVPlayerLayer) {
-//        videoView.layer.addSublayer(layer)
-//    }
 }
 

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import AVFoundation
 
 // MARK: - Protocol requirements
 protocol MainPresenterProtocol {
@@ -40,29 +39,8 @@ class MainPresenter {
         guard let strURL = gameVideos[index].url else { return nil }
         return URL(string: strURL)
     }
-    
-//    func createPlayer(with url: URL?) {
-//        guard let url = url else { return }
-//
-//        //2. Create AVPlayer object
-//        let asset = AVAsset(url: url)
-//        let playerItem = AVPlayerItem(asset: asset)
-//        let player = AVPlayer(playerItem: playerItem)
-//
-//        //3. Create AVPlayerLayer object
-//        let playerLayer = AVPlayerLayer(player: player)
-//        let videoViewFrame = view?.getFrame()
-//        playerLayer.frame = videoViewFrame!
-//        playerLayer.videoGravity = .resizeAspect
-//
-//        //4. Add playerLayer to view's layer
-//        view?.addLayer(playerLayer)
-//
-//        //5. Play Video
-//        player.play()
-//
-//    }
 }
+
 // MARK: - Protocol requirements implementation
 extension MainPresenter: MainPresenterProtocol {
     
@@ -75,7 +53,6 @@ extension MainPresenter: MainPresenterProtocol {
     var videosCount: Int {
         gameVideos.count
     }
-    
     
     func fetchGameStat() {
         dataFetcher?.fetchGameStat { [weak self] gameStat in

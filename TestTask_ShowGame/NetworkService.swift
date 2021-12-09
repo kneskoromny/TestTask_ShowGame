@@ -21,7 +21,7 @@ final class NetworkService {
         
         return URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
             guard let response = response as? HTTPURLResponse else {
-                print(#function, "Fetch error: \(error)")
+                print(#function, "Fetch error: \(String(describing: error))")
                 return
             }
             print(#function, "Response: \(response.statusCode)")

@@ -9,14 +9,30 @@ import UIKit
 import AVFoundation
 
 class VideoView: UIView {
+    
     // MARK: - UI elements
     lazy var button = createButton()
     
+    // MARK: - State change
     var url: URL? {
         didSet {
           createPlayer(with: url)
         }
     }
+    var isPlayed = false {
+        didSet {
+            switch isPlayed {
+            case true:
+                player.play()
+                button.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+            case false:
+                player.pause()
+                button.setImage(UIImage(systemName: "play.fill"), for: .normal)
+            }
+        }
+    }
+    // MARK: - Player
+    var player: AVPlayer!
 
     // MARK: - Initializers
     override init(frame: CGRect) {
@@ -29,10 +45,8 @@ class VideoView: UIView {
         addButton()
     }
     
-    @objc func changeState() {
-        print("state changed")
-    }
     
+    // MARK: - Add UI elements
     private func addButton() {
         addSubview(button)
         button.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20)
@@ -40,36 +54,44 @@ class VideoView: UIView {
         button.centerXAnchor.constraint(equalTo: self.centerXAnchor)
             .isActive = true
     }
+    
+}
+// MARK: - Additional methods
+extension VideoView {
+    @objc func changeState() {
+        isPlayed.toggle()
+    }
+    
+    private func createButton() -> UIButton {
+        let b = UIButton()
+        b.translatesAutoresizingMaskIntoConstraints = false
+        var configuration = UIButton.Configuration.filled()
+        configuration.buttonSize = .large
+        configuration.baseBackgroundColor = .red
+        configuration.image = UIImage(systemName: "play.fill")
+        
+        b.configuration = configuration
+        b.addTarget(self, action: #selector(changeState), for: .touchUpInside)
+        b.isEnabled = false
+        return b
+    }
+    
     private func createPlayer(with url: URL?) {
         guard let url = url else { return }
 
-        //2. Create AVPlayer object
-        let asset = AVAsset(url: url)
-        let playerItem = AVPlayerItem(asset: asset)
-        let player = AVPlayer(playerItem: playerItem)
+        player = AVPlayer(url: url)
         
-        //3. Create AVPlayerLayer object
         let playerLayer = AVPlayerLayer(player: player)
-        let videoViewFrame = self.bounds
-        playerLayer.frame = videoViewFrame
-        playerLayer.videoGravity = .resizeAspect
+        playerLayer.addSublayer(button.layer)
+        playerLayer.frame = self.bounds
+        playerLayer.videoGravity = .resizeAspectFill
         
-        //4. Add playerLayer to view's layer
-        //view?.addLayer(playerLayer)
         self.layer.addSublayer(playerLayer)
-        //5. Play Video
-        player.play()
         
-    }
-}
-extension VideoView {
-    func createButton() -> UIButton {
-        let b = UIButton()
-        b.translatesAutoresizingMaskIntoConstraints = false
-        b.setImage(UIImage(systemName: "play.fill"), for: .normal)
-        b.tintColor = .black
-        b.addTarget(self, action: #selector(changeState), for: .touchUpInside)
-        return b
+        if self.layer.sublayers?.count != 1 {
+            self.layer.sublayers?.removeFirst()
+        }
+        button.isEnabled = true
     }
 }
 
