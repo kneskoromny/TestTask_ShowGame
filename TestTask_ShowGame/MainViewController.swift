@@ -8,6 +8,10 @@
 import UIKit
 import AVFoundation
 
+protocol MainViewProtocol: AnyObject {
+    
+}
+
 class MainViewController: UIViewController {
     
     @IBOutlet weak var videoPlayerView: UIView!
@@ -31,7 +35,7 @@ class MainViewController: UIViewController {
     
     let urlString = "https://cf-de28.instatfootball.tv/240/1724836_1.mp4?Expires=1638999247&Signature=AILCLgIL335WTPaqu71kfGV~qNRIcYpyBMd8VTo-l4~l07qnQ0N3PnlhYIrHwKynQv6rpK~BEKOoteuxhXovy~-M9knGemhYqqbazpON2MX13JOOEbq~GQW4LEn61HcuuTH~-mlVenxGr-wRO8F3ooLbnlW9Hdf0wJb6Srd-2MZC8ZONDg~FXFPNm6365hpBajps9xagenbRznglGLRFsyiXz-aYFnqwJ3TFjogLMTKOG77UBwfZmP2dqK6YP-U76tQTm5JOWYaRII6PWc28EzS4Nvo5WYRoA3O3AOOHINTpST5RRPcyRWD7OhzlwNQc43yqYGlYe5fki2VwA9dIw-KTAGtxaYWsG6IUFf88U2lF9UTMARvZkKMofZFqnjvn7fxZTFDvYi8ieva-HK5A~jjL53RtxbhtmDdo-037~H3Q4xc12qq0R~OaAAczvt18ySLFf2aU7-FuSwTgCHI-n1PO5OVir1wHELj1mMKv02cSo2JXGHKP0X~H2-~pDdvDXNSTJoIEB1hYbKw5FgS1Dsmfv5-OqNRBDtEW1JYvZTcpjC3kreabB29oOGjRFtKrJEjE5A1a7PQXBcXPcOxjzoAPPRUk1Ki1quoX2QyiPSa3OkLTFf0npNIDXs0al1xhJ9M4MuyHQpwmkFXWG3Rytq-7uz03i3fItsvgDM1HJzk_&Key-Pair-Id=APKAJP7V33NW3RCUW6CQ"
     
-    var networkService: NetworkServiceProtocol!
+    var presenter: MainPresenterProtocol!
     
     let itemsPerColumn: CGFloat = 1
     let sectionInserts = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
@@ -39,17 +43,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        networkService = NetworkService()
-//        networkService.makeRequest { data, error in
-//            guard let data = data else { return }
-//
-//            do {
-//                let objects = try JSONDecoder().decode([GameInfo].self, from: data)
-//                //print("Objects: \(objects)")
-//            } catch {
-//                print("Parse error: \(error)")
-//            }
-//        }
+
         pinStackView()
         addLabelsToStackViews()
         pinVideoView()
@@ -132,7 +126,9 @@ class MainViewController: UIViewController {
             .isActive = true
         
     }
-    
+}
 
+extension MainViewController: MainViewProtocol {
+    
 }
 
