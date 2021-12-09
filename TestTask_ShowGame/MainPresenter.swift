@@ -14,26 +14,24 @@ protocol MainPresenterProtocol {
 class MainPresenter {
     // MARK: - Dependencies
     weak var view: MainViewProtocol?
-    var networkService: NetworkServiceProtocol
+    var dataFetcher: DataFetcherProtocol?
     
     // MARK: - Data
     var gameStat: Game?
     var videos: [GameInfo]?
     
     // MARK: - Initializers
-    init(view: MainViewProtocol, networkService: NetworkServiceProtocol) {
+    init(view: MainViewProtocol, dataFetcher: DataFetcherProtocol) {
         self.view = view
-        self.networkService = networkService
+        self.dataFetcher = dataFetcher
     }
 }
 // MARK: - Protocol requirements implementation
 extension MainPresenter: MainPresenterProtocol {
     func fetchGameInfo() {
-        networkService.makeRequest(type: Game.self,
-                                   with: APIManager.getStatURL(),
-                                   params: APIManager.getStatParams()) { game in
+        dataFetcher?.fetchGameStat(completion: { game in
             print(game)
-        }
+        })
     }
 }
 

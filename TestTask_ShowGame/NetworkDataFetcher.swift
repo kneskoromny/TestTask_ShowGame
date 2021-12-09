@@ -14,7 +14,7 @@ enum URLString: String {
 
 // MARK: - Protocol requirements
 protocol DataFetcherProtocol {
-    func fetchGameStat()
+    func fetchGameStat(completion: @escaping (Game?) -> Void)
     func fetchVideos()
 }
 
@@ -29,8 +29,11 @@ final class NetworkDataFetcher {
 
 // MARK: - Protocol requirements implementation
 extension NetworkDataFetcher: DataFetcherProtocol {
-    func fetchGameStat() {
-        print(1)
+    func fetchGameStat(completion: @escaping (Game?) -> Void) {
+        networkService.makeRequest(type: Game.self,
+                                   with: APIManager.getStatURL(),
+                                   params: APIManager.getStatParams(),
+                                   completion: completion)
     }
     
     func fetchVideos() {

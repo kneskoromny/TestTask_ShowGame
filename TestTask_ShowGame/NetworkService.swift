@@ -67,23 +67,4 @@ extension NetworkService: NetworkServiceProtocol {
         let task = createDataTask(type: type, from: request, completion: completion)
         task.resume()
     }
-    
-    
-//    func makeRequest(with url: String,
-//                     params: [String: Any],
-//                     completion: @escaping (Game?) -> Void) {
-//
-//        guard let url = URL(string: url) else {
-//            print(#function, "No url")
-//            return
-//        }
-//        var request = URLRequest(url: url)
-//        request.httpMethod = "POST"
-//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-//        request.httpBody = try? JSONSerialization.data(withJSONObject: params,
-//                                                       options: .prettyPrinted)
-//
-//        let task = createDataTask(from: request, completion: completion)
-//        task.resume()
-//    }
 }
