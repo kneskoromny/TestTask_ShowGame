@@ -50,6 +50,8 @@ class MainViewController: UIViewController {
         
         collectionView.dataSource = self
         collectionView.delegate = self
+        
+        presenter.fetchGameInfo()
     }
     
     @IBAction func button() {

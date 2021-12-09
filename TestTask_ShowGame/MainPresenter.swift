@@ -6,18 +6,19 @@
 //
 
 import Foundation
-
+// MARK: - Protocol requirements
 protocol MainPresenterProtocol {
-    
+    func fetchGameInfo()
 }
 
 class MainPresenter {
-    // MARK: - Dependenciew
+    // MARK: - Dependencies
     weak var view: MainViewProtocol?
     var networkService: NetworkServiceProtocol
     
     // MARK: - Data
-    
+    var gameStat: Game?
+    var videos: [GameInfo]?
     
     // MARK: - Initializers
     init(view: MainViewProtocol, networkService: NetworkServiceProtocol) {
@@ -25,7 +26,14 @@ class MainPresenter {
         self.networkService = networkService
     }
 }
-
+// MARK: - Protocol requirements implementation
 extension MainPresenter: MainPresenterProtocol {
-    
+    func fetchGameInfo() {
+        networkService.makeRequest(type: Game.self,
+                                   with: APIManager.getStatURL(),
+                                   params: APIManager.getStatParams()) { game in
+            print(game)
+        }
+    }
 }
+
