@@ -12,8 +12,9 @@ protocol MainViewProtocol: AnyObject {
     func updateLabels()
     func updateCollectionView()
     
-    func getFrame() -> CGRect
-    func addLayer(_ layer: AVPlayerLayer)
+    func showVideo(from url: URL?)
+//    func getFrame() -> CGRect
+//    func addLayer(_ layer: AVPlayerLayer)
 }
 
 class MainViewController: UIViewController {
@@ -133,11 +134,15 @@ extension MainViewController: MainViewProtocol {
         
     }
     
-    func getFrame() -> CGRect {
-        videoView.bounds
+    func showVideo(from url: URL?) {
+        videoView.url = url
     }
-    func addLayer(_ layer: AVPlayerLayer) {
-        videoView.layer.addSublayer(layer)
-    }
+    
+//    func getFrame() -> CGRect {
+//        videoView.bounds
+//    }
+//    func addLayer(_ layer: AVPlayerLayer) {
+//        videoView.layer.addSublayer(layer)
+//    }
 }
 

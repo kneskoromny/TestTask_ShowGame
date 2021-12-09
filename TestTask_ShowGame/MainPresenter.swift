@@ -18,7 +18,7 @@ protocol MainPresenterProtocol {
     func fetchGameVideos()
     
     func getVideoData(at indexPath: IndexPath) -> GameVideo
-    func showVideo(at indexPath: IndexPath)
+    func preparePath(at indexPath: IndexPath)
 }
 
 class MainPresenter {
@@ -41,27 +41,27 @@ class MainPresenter {
         return URL(string: strURL)
     }
     
-    func createPlayer(with url: URL?) {
-        guard let url = url else { return }
-
-        //2. Create AVPlayer object
-        let asset = AVAsset(url: url)
-        let playerItem = AVPlayerItem(asset: asset)
-        let player = AVPlayer(playerItem: playerItem)
-        
-        //3. Create AVPlayerLayer object
-        let playerLayer = AVPlayerLayer(player: player)
-        let videoViewFrame = view?.getFrame()
-        playerLayer.frame = videoViewFrame!
-        playerLayer.videoGravity = .resizeAspect
-        
-        //4. Add playerLayer to view's layer
-        view?.addLayer(playerLayer)
-        
-        //5. Play Video
-        player.play()
-        
-    }
+//    func createPlayer(with url: URL?) {
+//        guard let url = url else { return }
+//
+//        //2. Create AVPlayer object
+//        let asset = AVAsset(url: url)
+//        let playerItem = AVPlayerItem(asset: asset)
+//        let player = AVPlayer(playerItem: playerItem)
+//
+//        //3. Create AVPlayerLayer object
+//        let playerLayer = AVPlayerLayer(player: player)
+//        let videoViewFrame = view?.getFrame()
+//        playerLayer.frame = videoViewFrame!
+//        playerLayer.videoGravity = .resizeAspect
+//
+//        //4. Add playerLayer to view's layer
+//        view?.addLayer(playerLayer)
+//
+//        //5. Play Video
+//        player.play()
+//
+//    }
 }
 // MARK: - Protocol requirements implementation
 extension MainPresenter: MainPresenterProtocol {
@@ -95,9 +95,9 @@ extension MainPresenter: MainPresenterProtocol {
     func getVideoData(at indexPath: IndexPath) -> GameVideo {
         gameVideos[indexPath.row]
     }
-    func showVideo(at indexPath: IndexPath) {
+    func preparePath(at indexPath: IndexPath) {
         let url = getURL(at: indexPath.row)
-        createPlayer(with: url)
+        view?.showVideo(from: url)
     }
 }
 
