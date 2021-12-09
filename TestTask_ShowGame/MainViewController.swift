@@ -9,7 +9,7 @@ import UIKit
 import AVFoundation
 
 protocol MainViewProtocol: AnyObject {
-    
+    func updateUI()
 }
 
 class MainViewController: UIViewController {
@@ -78,7 +78,7 @@ class MainViewController: UIViewController {
     private func addLabelsToStackViews() {
         firstHorizStackView.addArrangedSubview(firstTeamNameLabel)
         firstHorizStackView.addArrangedSubview(secondTeamNameLabel)
-        firstHorizStackView.distribution = .fillProportionally
+        firstHorizStackView.distribution = .fillEqually
         firstHorizStackView.backgroundColor = .magenta
         
         secondHorizStackView.addArrangedSubview(firstTeamScoreLabel)
@@ -131,6 +131,20 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController: MainViewProtocol {
-    
+    func updateUI() {
+        guard let stat = presenter.stat else { return }
+        
+        tournamentNameLabel.text = stat.tournament?.nameRus
+        gameDateLabel.text = stat.date
+        firstTeamNameLabel.text = stat.team1?.nameRus
+        if let firstTeamScore = stat.team1?.score {
+            firstTeamScoreLabel.text = String(firstTeamScore)
+        }
+        secondTeamNameLabel.text = stat.team2?.nameRus
+        if let secondTeamScore = stat.team2?.score {
+            secondTeamScoreLabel.text = String(secondTeamScore)
+        }
+        
+    }
 }
 

@@ -8,6 +8,8 @@
 import Foundation
 // MARK: - Protocol requirements
 protocol MainPresenterProtocol {
+    var stat: GameStat? { get }
+    
     func fetchGameStat()
     func fetchGameVideos()
 }
@@ -19,7 +21,7 @@ class MainPresenter {
     
     // MARK: - Data
     var gameStat: GameStat?
-    var videos: [GameVideo]?
+    var gameVideos: [GameVideo]?
     
     // MARK: - Initializers
     init(view: MainViewProtocol, dataFetcher: DataFetcherProtocol) {
@@ -29,16 +31,21 @@ class MainPresenter {
 }
 // MARK: - Protocol requirements implementation
 extension MainPresenter: MainPresenterProtocol {
+    var stat: GameStat? {
+        gameStat
+    }
+    
     
     func fetchGameStat() {
-        dataFetcher?.fetchGameStat { game in
-            print(game)
+        dataFetcher?.fetchGameStat { [weak self] gameStat in
+            self?.gameStat = gameStat
+            self?.view?.updateUI()
         }
     }
     
     func fetchGameVideos() {
-        dataFetcher?.fetchVideos { videos in
-            print(videos?.count)
+        dataFetcher?.fetchVideos { [weak self] videos in
+            self?.gameVideos = videos
         }
     }
 }
