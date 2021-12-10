@@ -41,6 +41,7 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
 
         pinStackView()
         addLabelsToStackViews()
@@ -99,13 +100,13 @@ class MainViewController: UIViewController {
     }
     private func pinCollectionView() {
         view.addSubview(collectionView)
-        collectionView.topAnchor.constraint(equalTo: vertStackView.bottomAnchor, constant: 20)
+        collectionView.topAnchor.constraint(equalTo: vertStackView.bottomAnchor, constant: 10)
             .isActive = true
         collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20)
             .isActive = true
         collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
             .isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: videoView.topAnchor, constant: -20)
+        collectionView.bottomAnchor.constraint(equalTo: videoView.topAnchor, constant: -10)
             .isActive = true
     }
     
