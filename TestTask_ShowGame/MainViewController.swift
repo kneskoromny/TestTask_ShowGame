@@ -18,20 +18,20 @@ protocol MainViewProtocol: AnyObject {
 class MainViewController: UIViewController {
     
     // MARK: - UI elements
-    lazy var tournamentNameLabel = createLabel()
-    lazy var gameDateLabel = createLabel()
-    lazy var firstTeamNameLabel = createLabel()
-    lazy var firstTeamScoreLabel = createLabel()
-    lazy var secondTeamNameLabel = createLabel()
-    lazy var secondTeamScoreLabel = createLabel()
+    lazy var tournamentNameLabel = UIElementsFactory.createLabel(fontName: .regular, fontSize: 10)
+    lazy var gameDateLabel = UIElementsFactory.createLabel(fontName: .regular, fontSize: 10)
+    lazy var firstTeamNameLabel = UIElementsFactory.createLabel(fontName: .regular, fontSize: 10)
+    lazy var firstTeamScoreLabel = UIElementsFactory.createLabel(fontName: .regular, fontSize: 10)
+    lazy var secondTeamNameLabel = UIElementsFactory.createLabel(fontName: .regular, fontSize: 10)
+    lazy var secondTeamScoreLabel = UIElementsFactory.createLabel(fontName: .regular, fontSize: 10)
     
-    lazy var collectionView = createCollectionView()
+    lazy var collectionView = UIElementsFactory.createCollectionView()
     
-    lazy var videoView = createVideoView()
+    lazy var videoView = UIElementsFactory.createVideoView()
     
-    lazy var firstHorizStackView = createStackView(axis: .horizontal)
-    lazy var secondHorizStackView = createStackView(axis: .horizontal)
-    lazy var vertStackView = createStackView(axis: .vertical)
+    lazy var firstHorizStackView = UIElementsFactory.createStackView(axis: .horizontal)
+    lazy var secondHorizStackView = UIElementsFactory.createStackView(axis: .horizontal)
+    lazy var vertStackView = UIElementsFactory.createStackView(axis: .vertical)
     
     
     let itemsPerColumn: CGFloat = 1

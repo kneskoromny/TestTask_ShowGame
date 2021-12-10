@@ -9,10 +9,10 @@ import UIKit
 
 class CollectionCell: UICollectionViewCell {
     // MARK: - UI elements
-    lazy var periodLabel = createLabel()
-    lazy var qualityLabel = createLabel()
+    lazy var periodLabel = UIElementsFactory.createLabel(fontName: .regular, fontSize: 10)
+    lazy var qualityLabel = UIElementsFactory.createLabel(fontName: .regular, fontSize: 10)
     
-    lazy var stackView = createStackView(axis: .vertical)
+    lazy var stackView = UIElementsFactory.createStackView(axis: .vertical)
     
     // MARK: - Initializers
     override init(frame: CGRect) {
@@ -42,23 +42,5 @@ class CollectionCell: UICollectionViewCell {
             .isActive = true
         stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
             .isActive = true
-    }
-}
-// MARK: - Create UI elements
-extension CollectionCell {
-    func createLabel() -> UILabel {
-        let l = UILabel()
-        l.translatesAutoresizingMaskIntoConstraints = false
-        l.text = "Foo"
-        l.textAlignment = .center
-        
-        return l
-    }
-    func createStackView(axis: NSLayoutConstraint.Axis) -> UIStackView {
-        let sv = UIStackView()
-        sv.translatesAutoresizingMaskIntoConstraints = false
-        sv.axis = axis
-        
-        return sv
     }
 }

@@ -7,40 +7,6 @@
 
 import UIKit
 
-// MARK: - Create UI elements
-extension MainViewController {
-    
-    func createLabel() -> UILabel {
-        let l = UILabel()
-        l.translatesAutoresizingMaskIntoConstraints = false
-        l.text = "Foo"
-        l.textAlignment = .center
-        return l
-    }
-    func createCollectionView() -> UICollectionView {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.translatesAutoresizingMaskIntoConstraints = false
-        cv.register(CollectionCell.self, forCellWithReuseIdentifier: "cell")
-        cv.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
-        return cv
-    }
-    func createVideoView() -> VideoView{
-        let v = VideoView()
-        v.translatesAutoresizingMaskIntoConstraints = false
-        v.backgroundColor = #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)
-        return v
-    }
-    func createStackView(axis: NSLayoutConstraint.Axis) -> UIStackView {
-        let sv = UIStackView()
-        sv.translatesAutoresizingMaskIntoConstraints = false
-        sv.axis = axis
-        
-        return sv
-    }
-}
-
 // MARK: - Collection View data source
 extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
