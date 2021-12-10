@@ -28,6 +28,7 @@ extension MainViewController: UICollectionViewDataSource {
         return cell
     }
 }
+
 // MARK: - Collection View delegate
 extension MainViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

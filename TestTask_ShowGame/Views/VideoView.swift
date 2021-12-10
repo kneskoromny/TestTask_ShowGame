@@ -8,7 +8,7 @@
 import UIKit
 import AVFoundation
 
-class VideoView: UIView {
+final class VideoView: UIView {
     
     // MARK: - UI elements
     lazy var button = createButton()

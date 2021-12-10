@@ -20,7 +20,7 @@ protocol MainPresenterProtocol {
     func preparePath(at indexPath: IndexPath)
 }
 
-class MainPresenter {
+final class MainPresenter {
     // MARK: - Dependencies
     weak var view: MainViewProtocol?
     var dataFetcher: DataFetcherProtocol?

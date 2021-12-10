@@ -12,7 +12,7 @@ enum FontName: String {
     case bold = "Menlo-Bold"
 }
 
-enum UIElementsFactory {
+struct UIElementsFactory {
     static  func createLabel(fontName: FontName, fontSize: CGFloat) -> UILabel {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false

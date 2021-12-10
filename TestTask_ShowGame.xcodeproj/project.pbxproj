@@ -61,6 +61,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F7823583276362FA008CC122 /* Configure&Routing */ = {
+			isa = PBXGroup;
+			children = (
+				F78235772761E1BC008CC122 /* AssemblyBuilder.swift */,
+				F78235752761E12B008CC122 /* Router.swift */,
+			);
+			path = "Configure&Routing";
+			sourceTree = "<group>";
+		};
+		F782358427636324008CC122 /* MainModule */ = {
+			isa = PBXGroup;
+			children = (
+				F7E09B402760D134009F343F /* MainViewController.swift */,
+				F7E09B5827613EEE009F343F /* Extension + MainViewController.swift */,
+				F7E09B522760D1D2009F343F /* MainPresenter.swift */,
+			);
+			path = MainModule;
+			sourceTree = "<group>";
+		};
+		F782358527636340008CC122 /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				F7E09B542760D1E4009F343F /* NetworkService.swift */,
+				F78235792761F043008CC122 /* NetworkDataFetcher.swift */,
+			);
+			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		F782358627636360008CC122 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F7E09B562760DBD6009F343F /* Model.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F78235872763638B008CC122 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F782357D276229FF008CC122 /* VideoView.swift */,
+				F7823573276140EA008CC122 /* CollectionCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F7823588276363C6008CC122 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F782358127634C49008CC122 /* UIElementsFactory.swift */,
+				F782357B2761F2CB008CC122 /* APIManager.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		F7E09B302760D134009F343F = {
 			isa = PBXGroup;
 			children = (
@@ -83,22 +137,16 @@
 				F7E09B502760D16A009F343F /* Task.strings */,
 				F7E09B3C2760D134009F343F /* AppDelegate.swift */,
 				F7E09B3E2760D134009F343F /* SceneDelegate.swift */,
-				F78235772761E1BC008CC122 /* AssemblyBuilder.swift */,
-				F78235752761E12B008CC122 /* Router.swift */,
-				F7E09B402760D134009F343F /* MainViewController.swift */,
-				F7E09B522760D1D2009F343F /* MainPresenter.swift */,
-				F7E09B5827613EEE009F343F /* Extension + MainViewController.swift */,
-				F782358127634C49008CC122 /* UIElementsFactory.swift */,
-				F782357D276229FF008CC122 /* VideoView.swift */,
-				F7823573276140EA008CC122 /* CollectionCell.swift */,
-				F7E09B542760D1E4009F343F /* NetworkService.swift */,
-				F78235792761F043008CC122 /* NetworkDataFetcher.swift */,
-				F782357B2761F2CB008CC122 /* APIManager.swift */,
-				F7E09B562760DBD6009F343F /* Model.swift */,
-				F7E09B422760D134009F343F /* Main.storyboard */,
-				F7E09B452760D137009F343F /* Assets.xcassets */,
-				F7E09B472760D137009F343F /* LaunchScreen.storyboard */,
 				F7E09B4A2760D137009F343F /* Info.plist */,
+				F7E09B452760D137009F343F /* Assets.xcassets */,
+				F7823583276362FA008CC122 /* Configure&Routing */,
+				F782358627636360008CC122 /* Models */,
+				F78235872763638B008CC122 /* Views */,
+				F782358427636324008CC122 /* MainModule */,
+				F782358527636340008CC122 /* NetworkLayer */,
+				F7823588276363C6008CC122 /* Helpers */,
+				F7E09B422760D134009F343F /* Main.storyboard */,
+				F7E09B472760D137009F343F /* LaunchScreen.storyboard */,
 			);
 			path = TestTask_ShowGame;
 			sourceTree = "<group>";

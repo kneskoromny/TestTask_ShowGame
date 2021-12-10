@@ -15,7 +15,7 @@ protocol MainViewProtocol: AnyObject {
     func showVideo(from url: URL?)
 }
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
     
     // MARK: - UI elements
     lazy var tournamentNameLabel = UIElementsFactory.createLabel(fontName: .bold, fontSize: 30)
@@ -33,12 +33,14 @@ class MainViewController: UIViewController {
     lazy var secondHorizStackView = UIElementsFactory.createStackView(axis: .horizontal)
     lazy var vertStackView = UIElementsFactory.createStackView(axis: .vertical)
     
-    
+    // MARK: - Collection view configure data
     let itemsPerColumn: CGFloat = 1
     let sectionInserts = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     
+    // MARK: - Dependencies
     var presenter: MainPresenterProtocol!
 
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -73,6 +75,7 @@ class MainViewController: UIViewController {
         vertStackView.distribution = .fillEqually
         vertStackView.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
     }
+    
     // MARK: - Pin UI elements
     private func pinStackView() {
         view.addSubview(vertStackView)

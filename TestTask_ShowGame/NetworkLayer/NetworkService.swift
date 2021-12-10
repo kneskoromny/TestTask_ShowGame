@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - Protocol requirements
 protocol NetworkServiceProtocol {
     func makeRequest<T: Decodable>(type: T.Type, with url: String,
                      params: [String: Any],
@@ -15,6 +16,7 @@ protocol NetworkServiceProtocol {
 
 final class NetworkService {
     
+    // MARK: - Launch session
     private func createDataTask<T: Decodable>(type: T.Type,
                                               from request: URLRequest,
                                               completion: @escaping (T?) -> Void) -> URLSessionDataTask {
@@ -32,7 +34,7 @@ final class NetworkService {
             }
         })
     }
-    
+    // MARK: - Parse data
     private func parseJSON<T: Decodable>(type: T.Type, from data: Data?) -> T? {
         guard let data = data else {
             print(#function, "No data to parse")
@@ -47,7 +49,7 @@ final class NetworkService {
         return nil
     }
 }
-
+// MARK: - Protocol requirements implementation
 extension NetworkService: NetworkServiceProtocol {
     func makeRequest<T>(type: T.Type,
                         with url: String,

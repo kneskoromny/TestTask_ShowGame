@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CollectionCell: UICollectionViewCell {
+final class CollectionCell: UICollectionViewCell {
     // MARK: - UI elements
     lazy var periodLabel = UIElementsFactory.createLabel(fontName: .bold, fontSize: 12)
     lazy var qualityLabel = UIElementsFactory.createLabel(fontName: .bold, fontSize: 12)
