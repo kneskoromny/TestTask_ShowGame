@@ -18,12 +18,12 @@ protocol MainViewProtocol: AnyObject {
 class MainViewController: UIViewController {
     
     // MARK: - UI elements
-    lazy var tournamentNameLabel = UIElementsFactory.createLabel(fontName: .regular, fontSize: 10)
-    lazy var gameDateLabel = UIElementsFactory.createLabel(fontName: .regular, fontSize: 10)
-    lazy var firstTeamNameLabel = UIElementsFactory.createLabel(fontName: .regular, fontSize: 10)
-    lazy var firstTeamScoreLabel = UIElementsFactory.createLabel(fontName: .regular, fontSize: 10)
-    lazy var secondTeamNameLabel = UIElementsFactory.createLabel(fontName: .regular, fontSize: 10)
-    lazy var secondTeamScoreLabel = UIElementsFactory.createLabel(fontName: .regular, fontSize: 10)
+    lazy var tournamentNameLabel = UIElementsFactory.createLabel(fontName: .bold, fontSize: 30)
+    lazy var gameDateLabel = UIElementsFactory.createLabel(fontName: .regular, fontSize: 15)
+    lazy var firstTeamNameLabel = UIElementsFactory.createLabel(fontName: .regular, fontSize: 20)
+    lazy var firstTeamScoreLabel = UIElementsFactory.createLabel(fontName: .bold, fontSize: 30)
+    lazy var secondTeamNameLabel = UIElementsFactory.createLabel(fontName: .regular, fontSize: 20)
+    lazy var secondTeamScoreLabel = UIElementsFactory.createLabel(fontName: .bold, fontSize: 30)
     
     lazy var collectionView = UIElementsFactory.createCollectionView()
     

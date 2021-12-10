@@ -22,7 +22,7 @@ extension MainViewController: UICollectionViewDataSource {
         if let gamePeriod = videoData.period,
            let videoQuality = videoData.quality {
             cell.periodLabel.text = "Тайм: \(gamePeriod)"
-            cell.qualityLabel.text = "Качество: \(videoQuality)"
+            cell.qualityLabel.text = "Кач-во:\(videoQuality)p"
         }
         
         return cell

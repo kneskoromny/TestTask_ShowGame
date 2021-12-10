@@ -9,7 +9,7 @@ import UIKit
 
 class CollectionCell: UICollectionViewCell {
     // MARK: - UI elements
-    lazy var periodLabel = UIElementsFactory.createLabel(fontName: .regular, fontSize: 10)
+    lazy var periodLabel = UIElementsFactory.createLabel(fontName: .regular, fontSize: 12)
     lazy var qualityLabel = UIElementsFactory.createLabel(fontName: .regular, fontSize: 10)
     
     lazy var stackView = UIElementsFactory.createStackView(axis: .vertical)
