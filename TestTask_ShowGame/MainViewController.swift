@@ -60,12 +60,10 @@ class MainViewController: UIViewController {
         firstHorizStackView.addArrangedSubview(firstTeamNameLabel)
         firstHorizStackView.addArrangedSubview(secondTeamNameLabel)
         firstHorizStackView.distribution = .fillEqually
-        firstHorizStackView.backgroundColor = .magenta
         
         secondHorizStackView.addArrangedSubview(firstTeamScoreLabel)
         secondHorizStackView.addArrangedSubview(secondTeamScoreLabel)
         secondHorizStackView.distribution = .fillEqually
-        secondHorizStackView.backgroundColor = .purple
         
         vertStackView.addArrangedSubview(tournamentNameLabel)
         vertStackView.addArrangedSubview(gameDateLabel)
@@ -73,7 +71,7 @@ class MainViewController: UIViewController {
         vertStackView.addArrangedSubview(secondHorizStackView)
         
         vertStackView.distribution = .fillEqually
-        vertStackView.backgroundColor = .lightGray
+        vertStackView.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
     }
     // MARK: - Pin UI elements
     private func pinStackView() {

@@ -20,6 +20,7 @@ enum UIElementsFactory {
         l.textAlignment = .center
         l.numberOfLines = 0
         l.font = UIFont(name: fontName.rawValue, size: fontSize)
+        l.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         return l
     }
     static func createCollectionView() -> UICollectionView {
@@ -28,13 +29,12 @@ enum UIElementsFactory {
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.register(CollectionCell.self, forCellWithReuseIdentifier: "cell")
-        cv.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
         return cv
     }
     static func createVideoView() -> VideoView{
         let v = VideoView()
         v.translatesAutoresizingMaskIntoConstraints = false
-        v.backgroundColor = #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)
+        v.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         return v
     }
     static func createStackView(axis: NSLayoutConstraint.Axis) -> UIStackView {
