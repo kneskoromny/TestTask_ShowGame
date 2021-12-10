@@ -9,6 +9,7 @@
 **Внимание! Архитектура MVP. На swift надо делать, без сторонних либ**
 
 ### Скриншоты
-![Simulator Screen Shot - iPhone SE (2nd generation) - 2021-12-10 at 13 25 55](https://user-images.githubusercontent.com/25160645/145561450-c05bb019-4b42-4d3c-ab35-face258a7677.png)
-![Simulator Screen Shot - iPhone SE (2nd generation) - 2021-12-10 at 13 26 10](https://user-images.githubusercontent.com/25160645/145561457-0a3854c1-a77e-4579-86a3-e7779fb83324.png)
-![Simulator Screen Shot - iPhone SE (2nd generation) - 2021-12-10 at 13 26 30](https://user-images.githubusercontent.com/25160645/145561465-8fcfe237-667d-4080-b831-afdef53fff31.png)
+
+![Simulator Screen Shot - iPhone SE (2nd generation) - 2021-12-10 at 13 25 55](https://user-images.githubusercontent.com/25160645/145561616-a85e4653-131d-4436-b1ae-6e6af4ea8b3a.png)
+![Simulator Screen Shot - iPhone SE (2nd generation) - 2021-12-10 at 13 26 10](https://user-images.githubusercontent.com/25160645/145561621-f50c16c0-000e-4e2c-9bb1-82ed840f6f15.png)
+![Simulator Screen Shot - iPhone SE (2nd generation) - 2021-12-10 at 13 26 30](https://user-images.githubusercontent.com/25160645/145561631-c6d6a977-455a-46df-ae09-b1d58af11224.png)
