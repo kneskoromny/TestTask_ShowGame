@@ -108,14 +108,26 @@ class MainViewController: UIViewController {
         collectionView.bottomAnchor.constraint(equalTo: videoView.topAnchor, constant: -20)
             .isActive = true
     }
+    
+    // MARK: - Convert date
+    private func convert(_ strDate: String?) -> String {
+        guard let strDate = strDate else { return "" }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd' 'HH:mm:ssZ"
+        
+        guard let date = dateFormatter.date(from: strDate) else { return ""}
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        return dateFormatter.string(from: date)
+    }
 }
+
 // MARK: - Protocol requirements implementation
 extension MainViewController: MainViewProtocol {
     func updateLabels() {
         guard let stat = presenter.stat else { return }
         
         tournamentNameLabel.text = stat.tournament?.nameRus
-        gameDateLabel.text = stat.date
+        gameDateLabel.text = convert(stat.date)
         firstTeamNameLabel.text = stat.team1?.nameRus
         if let firstTeamScore = stat.team1?.score {
             firstTeamScoreLabel.text = String(firstTeamScore)
